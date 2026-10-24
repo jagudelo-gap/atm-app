@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/data/
+.git/
+.superpowers/
+.vs/
+.vscode/
+docs/
+tests/
+.env
+*.log
+Dockerfile*
+docker-compose*.yml
