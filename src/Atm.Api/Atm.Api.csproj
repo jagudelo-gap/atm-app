@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Atm.Common\Atm.Common.csproj" />
+    <ProjectReference Include="..\Atm.Users\Atm.Users.csproj" />
+    <ProjectReference Include="..\Atm.Accounts\Atm.Accounts.csproj" />
+    <ProjectReference Include="..\Atm.Transactions\Atm.Transactions.csproj" />
+  </ItemGroup>
+
+</Project>
