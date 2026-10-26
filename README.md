@@ -12,6 +12,8 @@ Seed data (applied only when the database is empty): user `user-1`, Checking $1,
 - FluentValidation for data and business rules, Serilog logging, `/health` endpoint, ProblemDetails error responses.
 - Vue 3 + TypeScript + Vite SPA in `src/web`. In production the API serves the built site from `wwwroot`, so there is one deployable and no CORS.
 
+See more details: [Design](./docs/design.md)
+
 ## Run locally
 
 Needs Docker. From the repository root in PowerShell:
