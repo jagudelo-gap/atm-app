@@ -1,0 +1,33 @@
+@import '@fontsource/fira-sans/400.css';
+@import '@fontsource/fira-sans/700.css';
+@import '@fontsource/fira-sans-condensed/600.css';
+
+:root {
+  --atm-primary: #005e76;
+  --atm-navy: #0b223b;
+  --atm-error: #dd7404;
+  --atm-success: #98b71b;
+  --bs-primary: var(--atm-primary);
+  --bs-primary-rgb: 0, 94, 118;
+  --bs-danger: var(--atm-error);
+  --bs-danger-rgb: 221, 116, 4;
+  --bs-success: var(--atm-success);
+  --bs-success-rgb: 152, 183, 27;
+  --bs-body-font-family: 'Fira Sans', sans-serif;
+}
+
+h1, h2, h3, .atm-heading { font-family: 'Fira Sans Condensed', sans-serif; font-weight: 600; }
+
+.btn-primary {
+  --bs-btn-bg: var(--atm-primary);
+  --bs-btn-border-color: var(--atm-primary);
+  --bs-btn-hover-bg: var(--atm-navy);
+  --bs-btn-hover-border-color: var(--atm-navy);
+  --bs-btn-active-bg: var(--atm-navy);
+  --bs-btn-active-border-color: var(--atm-navy);
+}
+
+.btn-danger, .btn-warning { --bs-btn-bg: var(--atm-error); --bs-btn-border-color: var(--atm-error); --bs-btn-color: #fff; }
+.text-error { color: var(--atm-error); }
+.text-success { color: var(--atm-success) !important; }
+.atm-header { background: var(--atm-navy); color: #fff; }
