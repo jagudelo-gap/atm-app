@@ -81,6 +81,21 @@ All three run in-process inside one DB transaction and return the new balance(s)
 - **History:** transactions for user-1 (date, type, account, amount, status). Status is Completed or Failed; failed business attempts are recorded as Failed with the reason (builder may choose to record only completed ones if simpler; flag it).
 - **Balances:** both accounts.
 
+API routes (defined here so frontend and backend can be built in parallel). Errors use ProblemDetails: `{status, title, detail: <message>, errors: {field: [messages]}}`. Statuses: validation 400, business 422, conflict 409, unexpected 500.
+
+| Route | Request | Success response |
+|---|---|---|
+| `GET /api/users/by-name/{name}` | | `{id, name}` |
+| `GET /api/users/{userId}/accounts` | | `[{id, type, balance}]` |
+| `POST /api/users/{userId}/transactions/deposit` | `{accountId, amount}` | `OperationResult` |
+| `POST /api/users/{userId}/transactions/withdraw` | `{accountId, amount}` | `OperationResult` |
+| `POST /api/users/{userId}/transactions/transfer` | `{fromAccountId, toAccountId, amount}` | `OperationResult` |
+| `GET /api/users/{userId}/transactions` | | `[TransactionDto]` newest first |
+| `POST /api/demo/reset` | `{userId}` | 204 |
+| `GET /health` | | 200/503 with per-check status |
+
+`OperationResult = {transactionId, type, balances: [{id, type, balance}]}`. `TransactionDto = {id, type, status, amount, accountId, accountType, toAccountId?, toAccountType?, failureReason?, createdAt}`.
+
 ## Frontend
 
 Vue 3 + Vite, Vue Router, Bootstrap 5, Vitest. Branding: primary `#005e76`, dark navy `#0b223b`, errors `#dd7404` and success `#98b71b`, each for both text and border. Fonts: 'Fira Sans' and 'Fira Sans Condensed' (headings or compact labels, builder's choice). Other colors are the builder's call. Keep colors as CSS variables so they are easy to change.
